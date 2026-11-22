@@ -28,10 +28,10 @@ test('readers can discover a feed of published articles', async ({ page, request
     expect.arrayContaining([
       expect.objectContaining({
         title: 'The Tree',
-        link: 'https://nicolastoulemont.dev/blog/2022/the-tree/',
+        link: 'https://blog.understudy.build/blog/2022/the-tree',
       }),
       expect.objectContaining({
-        link: 'https://nicolastoulemont.dev/fr/blog/2021/retraining-web-development-online/',
+        link: 'https://blog.understudy.build/fr/blog/2021/retraining-web-development-online',
       }),
     ]),
   )

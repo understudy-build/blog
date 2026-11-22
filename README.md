@@ -1,6 +1,6 @@
-# nicolastoulemont.dev
+# blog.understudy.build
 
-Source of my personal engineering blog, a static [Astro](https://astro.build) site deployed on Fly.
+Source of my personal engineering blog, a static [Astro](https://astro.build) site served by Cloudflare Workers Static Assets.
 
 ## Stack
 
@@ -37,7 +37,7 @@ After `pnpm install`, run `pnpm exec playwright install chromium` before startin
 | -------------- | ------------------------------------------------------ |
 | `pnpm dev`     | Start the dev server                                   |
 | `pnpm build`   | Build the static site into `dist/`                     |
-| `pnpm preview` | Serve the built output                                 |
+| `pnpm preview` | Serve the built output with Wrangler                   |
 | `pnpm check`   | Astro type and content checks                          |
 | `pnpm lint`    | Oxlint                                                 |
 | `pnpm fallow`  | Fallow unused-code, duplication, and complexity checks |
@@ -45,4 +45,4 @@ After `pnpm install`, run `pnpm exec playwright install chromium` before startin
 | `pnpm test`    | Vitest unit tests                                      |
 | `pnpm e2e`     | Playwright browser tests (local only)                  |
 
-Pushes to `main` run the checks and deploy to Fly.
+Pushes to `main` run the checks and deploy with `wrangler deploy`, which needs the `CLOUDFLARE_API_TOKEN` repository secret. `wrangler.jsonc` sets the 404 page and the `blog.understudy.build` custom domain; `public/_headers` and `public/_redirects` set cache headers and the legacy `/blog/en` and `/blog/fr` redirects.

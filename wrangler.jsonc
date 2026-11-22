@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "blog",
+  "account_id": "566551af49e891f028fb8af08371e205",
+  "compatibility_date": "2026-11-11",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    // Astro links to /blog/2022/the-tree and builds the-tree/index.html.
+    // Serve the page at the link without a trailing-slash redirect.
+    "html_handling": "drop-trailing-slash",
+  },
+  "routes": [{ "pattern": "blog.understudy.build", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false,
+}

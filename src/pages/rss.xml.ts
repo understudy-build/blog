@@ -8,6 +8,7 @@ export async function GET() {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     site: SITE_URL,
+    trailingSlash: false,
     items: posts
       .toSorted((left, right) => right.publishedAt.localeCompare(left.publishedAt))
       .map((post) => ({

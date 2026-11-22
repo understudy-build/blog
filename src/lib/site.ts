@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://nicolastoulemont.dev'
+export const SITE_URL = 'https://blog.understudy.build'
 export const SITE_TITLE = 'Nicolas Toulemont engineering blog'
 export const SITE_DESCRIPTION =
   'Web development content about React, TypeScript, GraphQL, Node, and software architecture.'
