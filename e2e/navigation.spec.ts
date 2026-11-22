@@ -16,7 +16,7 @@ test('cards prefetch and support back and forward navigation', async ({ page }) 
   await expect(page).toHaveTitle('The Tree | Nicolas Toulemont')
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',
-    'https://nicolastoulemont.dev/blog/2022/the-tree',
+    'https://blog.understudy.build/blog/2022/the-tree',
   )
   await expect(page.locator('html')).toHaveClass(/dark/)
 
@@ -34,4 +34,18 @@ test('cards prefetch and support back and forward navigation', async ({ page }) 
   await expect(page.getByRole('heading', { level: 1 })).toContainText('The Tree')
   await page.goForward()
   await expect(page.getByRole('searchbox')).toBeVisible()
+})
+
+test('legacy locale URLs redirect permanently', async ({ request }) => {
+  for (const [legacy, current] of [
+    ['/blog/en/2022/the-tree', '/blog/2022/the-tree'],
+    [
+      '/blog/fr/2021/retraining-web-development-online',
+      '/fr/blog/2021/retraining-web-development-online',
+    ],
+  ]) {
+    const response = await request.get(legacy, { maxRedirects: 0 })
+    expect(response.status()).toBe(301)
+    expect(new URL(response.headers().location, 'http://x').pathname).toBe(current)
+  }
 })

@@ -8,7 +8,7 @@ export default defineConfig({
   },
   webServer: [
     {
-      command: 'pnpm build && pnpm preview --host 127.0.0.1 --port 4323 --ignore-lock',
+      command: 'pnpm build && pnpm preview --ip 127.0.0.1 --port 4323',
       url: 'http://127.0.0.1:4323',
       reuseExistingServer: false,
       timeout: 120000,

@@ -10,9 +10,10 @@ import figures from './src/lib/figures.mjs'
 import mermaid from './src/lib/mermaid.mjs'
 import tables from './src/lib/tables.mjs'
 import tabs from './src/lib/tabs.mjs'
+import { SITE_URL } from './src/lib/site.ts'
 
 export default defineConfig({
-  site: 'https://nicolastoulemont.dev',
+  site: SITE_URL,
   redirects: {
     '/blog/en/[year]/[slug]': '/blog/[year]/[slug]',
     '/blog/fr/[year]/[slug]': '/fr/blog/[year]/[slug]',
